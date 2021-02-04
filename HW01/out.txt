@@ -1,0 +1,11 @@
+classify_triangle(1,a,3) = invalid input type
+classify_triangle(7,3,3) = not a triangle
+classify_triangle(1,1,1) = equilateral
+classify_triangle(2,2,1) = isosceles
+classify_triangle(2,3,4) = scalene
+classify_triangle(5,12,13) = scalene and right triangle
+.......
+----------------------------------------------------------------------
+Ran 7 tests in 0.001s
+
+OK
