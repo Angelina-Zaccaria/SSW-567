@@ -2,23 +2,22 @@ import unittest
 from math import isclose, sqrt
 
 def classify_triangle(a, b, c):
-    if isinstance(a,str) or isinstance(b,str) or isinstance(c,str):
+    try:
+        if (a + b <= c) or (b + c <= a) or (a + c <= b):
+            return "not a triangle"
+
+        if a == b == c:
+            return "equilateral" #equilateral cannot be a right triangle
+        elif a == b or b == c or a == c:
+            output = "isosceles"
+        else:
+            output = "scalene"
+
+        if isclose(a**2 + b**2, c**2, abs_tol=1e-8) or isclose(b**2 + c**2, a**2, abs_tol=1e-8) or isclose(a**2 + c**2, b**2, abs_tol=1e-8):
+            output += " and right triangle"
+        return output
+    except:
         return "invalid input type"
-    if (a + b <= c) or (b + c <= a) or (a + c <= b):
-        return "not a triangle"
-
-    if a == b == c:
-        return "equilateral" #equilateral cannot be a right triangle
-    elif a == b or b == c or a == c:
-        output = "isosceles"
-    else:
-        output = "scalene"
-
-    # if (a**2 + b**2 == c**2) or (b**2 + c**2 == a**2) or (a**2 + c**2 == b**2):
-    # right triangles which involve square roots weren't registering as exactly equal ^
-    if isclose(a**2 + b**2, c**2, abs_tol=1e-8) or isclose(b**2 + c**2, a**2, abs_tol=1e-8) or isclose(a**2 + c**2, b**2, abs_tol=1e-8):
-        output += " and right triangle"
-    return output
 
 def runClassifyTriangle(a, b, c):
     """ invoke classifyTriangle with the specified arguments and print the result """
@@ -35,6 +34,8 @@ class TestTriangles(unittest.TestCase):
         self.assertEqual(classify_triangle(3,3,7),"not a triangle")
         self.assertEqual(classify_triangle(3,7,3),"not a triangle")
         self.assertEqual(classify_triangle(7,3,3),"not a triangle")
+        self.assertEqual(classify_triangle(0,2,3),"not a triangle")
+        self.assertEqual(classify_triangle(-1,7,9),"not a triangle")
 
     def test_equilateral(self):
         self.assertEqual(classify_triangle(3,3,3),"equilateral")
