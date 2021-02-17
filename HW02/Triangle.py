@@ -8,6 +8,7 @@ The primary goal of this file is to demonstrate a simple python program to class
 @author: jrr
 @author: rk
 """
+from math import isclose
 
 def classifyTriangle(a,b,c):
     """
@@ -52,9 +53,9 @@ def classifyTriangle(a,b,c):
     # now we know that we have a valid triangle 
     if a == b == c:
         return 'Equilateral'
-    elif ((a ** 2) + (b ** 2)) == (c ** 2) or ((a ** 2) + (c ** 2)) == (b ** 2) or ((b ** 2) + (c ** 2)) == (a ** 2):
+    elif isclose(a**2 + b**2, c**2, abs_tol=1e-8) or isclose(b**2 + c**2, a**2, abs_tol=1e-8) or isclose(a**2 + c**2, b**2, abs_tol=1e-8):
         return 'Right'
-    elif (a != b) and  (b != c) and (a != c):
-        return 'Scalene'
-    else:
+    elif a == b or b == c or a == c:
         return 'Isosceles'
+    else:
+        return 'Scalene'
