@@ -2,6 +2,11 @@ language: python
 python:
  - "3.5"
 # command to run tests
+install:
+- pip install requests
 script:
  - cd HW02
  - python3 -m unittest TestTriangle
+ - cd ..
+ - cd HW04a
+ - python3 -m unittest TestGitHubApi
