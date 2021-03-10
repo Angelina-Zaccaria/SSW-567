@@ -1,5 +1,5 @@
 import unittest
-from github_api import get_git_info
+from GitHubApi import get_git_info
 
 class test_github_api(unittest.TestCase):
 
