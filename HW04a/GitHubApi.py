@@ -18,5 +18,5 @@ def get_git_info(userID):
 def stringify_repos(repos):
     return "\n".join(repos)
 
-print(stringify_repos(get_git_info("Angelina-Zaccaria")))
-print(get_git_info("richkempinski"))
+# print(stringify_repos(get_git_info("Angelina-Zaccaria")))
+# print(get_git_info("richkempinski"))

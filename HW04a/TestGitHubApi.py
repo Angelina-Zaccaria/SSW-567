@@ -1,38 +1,6 @@
 import unittest
 from unittest.mock import Mock, patch
-# import json
-# from GitHubApi import get_git_info
 import GitHubApi
-
-# @patch('GitHubApi.requests.get')
-# def test_get_git_info(mock_get):
-#     # if mock_get == "Angelina-Zaccari":
-#     mock_get.status_code = 404
-
-# def mocked_requests_get(*args, **kwargs):
-#     class MockResponse:
-#         def __init__(self, text, status_code):
-#             self.text = text
-#             self.status_code = status_code
-
-#         def json(self):
-#             return json.dumps(self.text)
-
-#     if args[0] == "https://api.github.com/users/Angelina-Zaccaria/repos":
-#         with open('repos.txt', 'r') as file:
-#             repos = file.read().replace('\n', '')
-#         print(repos)
-#         return MockResponse(repos, 0)
-#     if args[0] == "https://api.github.com/repos/Angelina-Zaccaria/Angelina-Zaccaria.github.io/commits":
-#         with open('commits.txt', 'r') as file:
-#             commits = file.read().replace('\n', '')
-#         print(commits)
-#         return MockResponse(commits, 0)
-#     # elif args[0] == 'https://api.github.com/users/richkempinski/repos':
-#     #     return MockResponse({"key2": "value2"}, 200)
-
-#     return MockResponse(None, 404)
-
 
 class test_github_api(unittest.TestCase):
     
